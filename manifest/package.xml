@@ -2,31 +2,23 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>ImportantLinksController</members>
-		<members>SampleRequestFormForInternalEmpTest</members>
-		<members>SampleRequestFormForInternalEmployees</members>
-		<members>SampleRequestFormInternalEmployeesTest</members>
 		<members>sendPreferredVendorRPFController</members>
-		<members>sendPreferredVendorRPFControllerTest</members>
+		<members>SendCreditApplicationFormLinkController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
-		<members>Decor24Sample</members>
 		<members>OverrideNewButtonOnCreditApp</members>
 		<members>OverrideNewButtonOnPreferedVendor</members>
 		<members>OverrideNewButtonOnsampleRequest</members>
-		<members>WebsiteSampleRequestForm</members>
-		<members>newInternalSamples</members>
-		<members>sendCreditApplicationFormLink</members>
-		<members>sendPreferredVendorRPFLink</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
-		<members>Ancilliary_preferred_vendor</members>
+		<members>Preferred_Vendor_RPF_link</members>
 		<members>Credit_Application_Form_URL</members>
 		<members>Decor_URL</members>
-		<members>Preferred_Vendor_RPF_link</members>
-		<members>Sample_Request_Form_URL</members>
+		<members>Ancilliary_preferred_vendor</members>
 		<members>WebSite_Form_URL</members>
+		<members>Sample_Request_Form_URL</members>
 		<name>CustomLabel</name>
 	</types>
 	<types>

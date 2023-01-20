@@ -273,9 +273,7 @@
     },
     
     getRecordId : function(component,event,helper){        
-        let idFromUrl = URLSearchParams(window.location.search).get("Id");   
-        console.log('getRecordId');
-        console.log(idFromUrl);
+        let idFromUrl = URLSearchParams(window.location.search).get("Id");        
         component.set("v.formId", idFromUrl);
         
     },
@@ -565,7 +563,6 @@
             }), 200
         );
     },
-    
     fetchSelectedProducts : function(component,idsFromSearchModal,selectedProductsData){
          var action = component.get('c.fetchSelectedProducts');
         action.setParams({'selectedProductIds' : idsFromSearchModal});
@@ -586,8 +583,7 @@
                 component.set('v.isSelectedProduct',true);
                 component.set("v.selectedProductsData",selectedProductsData);
                 component.set("v.noItemSelected",false);
-                component.set("v.totalResults",'');
-                
+                component.set("v.totalResults",'');           
             }            
             else if (state === "ERROR") {
                 var errors = response.getError();
@@ -603,5 +599,4 @@
         });
         $A.enqueueAction(action); 
     }
-
 })

@@ -24,15 +24,15 @@
                 
             }
             else if (state === "ERROR") {
-                    var errors = response.getError();                
+                var errors = response.getError();
+                
                 if (errors) {
                     if (errors[0] && errors[0].message) {
-                        console.log("Error message: " +errors[0].message);
-                        helper.showSaveErrorToastWithmessage(component, event, helper, errors[0].message);
+                        console.log("Error message: " + 
+                                    errors[0].message);
                     }
                 } else {
                     console.log("Unknown error");
-					helper.showSaveErrorToastWithmessage(component, event, helper, 'Unknown error');
                 }
             }
         });
@@ -48,15 +48,15 @@
                 component.set("v.stateLst", result);
             }
             else if (state === "ERROR") {
-                   var errors = response.getError();                
+                var errors = response.getError();
+                
                 if (errors) {
                     if (errors[0] && errors[0].message) {
-                        console.log("Error message: " +errors[0].message);
-                        helper.showSaveErrorToastWithmessage(component, event, helper, errors[0].message);
+                        console.log("Error message: " + 
+                                    errors[0].message);
                     }
                 } else {
                     console.log("Unknown error");
-					helper.showSaveErrorToastWithmessage(component, event, helper, 'Unknown error');
                 }
             }
         });
@@ -182,16 +182,12 @@
                 //helper.createNewLead(component,event,helper,sampleRequestFormDetails);
             }
             else if(state =='ERROR'){  
-                    var errors = response.getError();                
-                if (errors) {
-                    if (errors[0] && errors[0].message) {
-                        console.log("Error message: " +errors[0].message);
-                        helper.showSaveErrorToastWithmessage(component, event, helper, errors[0].message);
-                    }
-                } else {
-                    console.log("Unknown error");
-					helper.showSaveErrorToastWithmessage(component, event, helper, 'Unknown error');
-                }
+                 debugger;
+               var errors=response.getError();
+                var errorMsg=errors[0].message;
+                console.log(errors);
+                console.log(errorMsg);
+                this.showSaveErrorToast(component, event, helper);
             }
         }); 
         
@@ -259,15 +255,16 @@
             }
             
             else if (state === "ERROR") {
-                   var errors = response.getError();                
+                var errors = response.getError();
+                
                 if (errors) {
+                    this.showSaveErrorToast(component, event, helper);
                     if (errors[0] && errors[0].message) {
-                        console.log("Error message: " +errors[0].message);
-                        helper.showSaveErrorToastWithmessage(component, event, helper, errors[0].message);
+                    console.log("Error message: " + 
+                                    errors[0].message);
                     }
                 } else {
                     console.log("Unknown error");
-					helper.showSaveErrorToastWithmessage(component, event, helper, 'Unknown error');
                 }
             } 
         });         
@@ -362,15 +359,15 @@
                 
             }
             else if (state === "ERROR") {
-                   var errors = response.getError();                
+                var errors = response.getError();
+                
                 if (errors) {
                     if (errors[0] && errors[0].message) {
-                        console.log("Error message: " +errors[0].message);
-                        helper.showSaveErrorToastWithmessage(component, event, helper, errors[0].message);
+                        console.log("Error message: " + 
+                                    errors[0].message);
                     }
                 } else {
                     console.log("Unknown error");
-					helper.showSaveErrorToastWithmessage(component, event, helper, 'Unknown error');
                 }
             }            
         });         
@@ -413,15 +410,34 @@
         component.set('v.totalNumberOfSampleItems', totalItems);
         
     },
-     showSaveErrorToastWithmessage : function(component, event, helper, message) {
-        console.log(message);
-        //alert(message)
-        var toastEvent = $A.get("e.force:showToast");
-        toastEvent.setParams({
-            title : 'Error',
-            message:message,
-            type: 'error'
+    
+    /*createNewLead:function(component, event, helper,sampleRequestFormDetails) {
+        var action = component.get("c.createNewLead");
+        action.setParams({
+            sampleRequestFormDetailsJSON:sampleRequestFormDetails
         });
-        toastEvent.fire();
-    },
+        
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            
+            var returnResult=  response.getReturnValue();
+            if (state === "SUCCESS") {
+                console.log('returnResult'+returnResult);
+                this.showSaveSuccessToast(component, event, helper,'Your Form Have Been Submitted !!');
+            }
+            else if (state === "ERROR") {
+                var errors = response.getError();
+                if (errors) {
+                    this.showSaveErrorToast(component, event, helper);
+                    if (errors[0] && errors[0].message) {
+                    console.log("Error message: " + 
+                                    errors[0].message);
+                    }
+                } else {
+                    console.log("Unknown error");
+                }
+            } 
+        });         
+        $A.enqueueAction(action);
+    },*/
 })
